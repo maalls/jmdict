@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form>
+        <input type="text" name="q" value="{{ q }}" /> 
+        <input type="submit" value="Search" />
+    </form>
+
+    <div>
+        {% for word in words %}
+            <li>
+                <p>{{ word.value }}</p>
+                <ul>
+                    {% for senseWord in word.senseWords %}
+
+                        <li>
+                            {% for senseGlossary in senseWord.sense.senseGlossaries %}
+                                <p>{{ senseGlossary.glossary }}</p>
+                            {% endfor %}
+                        </li>
+                    {% endfor %}
+
+                </ul>
+
+            </li>
+        {% endfor %}
+    </div>
+{% endblock %}
