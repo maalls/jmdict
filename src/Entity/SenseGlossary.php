@@ -31,6 +31,12 @@ class SenseGlossary
     private $glossary;
 
 
+    public function __toString()
+    {
+
+        return $this->getGlossary();
+
+    }
     /**
      * @return mixed
      */

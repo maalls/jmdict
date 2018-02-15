@@ -75,11 +75,24 @@ class Word
      */
     private $senseWords;
 
+    /**
+     * @ORM\OneToMany(targetEntity="KanjiReading", mappedBy="kanji")
+     */
+    private $kanjiReadings;
+
 
     public function __construct()
     {
 
         $this->senseWords = new Doctrine\Common\Collections\ArrayCollection();
+        $this->kanjiReadings = new Doctrine\Common\Collections\ArrayCollection();
+
+    }
+
+    public function getKanjiReadings()
+    {
+
+        return $this->kanjiReadings;
 
     }
 

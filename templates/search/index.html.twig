@@ -1,28 +1,65 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     <form>
-        <input type="text" name="q" value="{{ q }}" /> 
-        <input type="submit" value="Search" />
-    </form>
-
-    <div>
-        {% for word in words %}
-            <li>
-                <p>{{ word.value }}</p>
-                <ul>
-                    {% for senseWord in word.senseWords %}
-
-                        <li>
-                            {% for senseGlossary in senseWord.sense.senseGlossaries %}
-                                <p>{{ senseGlossary.glossary }}</p>
-                            {% endfor %}
-                        </li>
-                    {% endfor %}
-
-                </ul>
-
-            </li>
-        {% endfor %}
+    <div class="row pt-5 py-5">
+        
+            <div class="col-md-12">
+                <div class="form-group">
+                    <textarea id="form-query" onkeyup="textAreaAdjust(this)" onfocus="textAreaAdjust(this)" style="overflow:hidden" class="form-control" name="q" style="width:100%">{{ q }}</textarea> 
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>           
+        
     </div>
+    </form> 
+    {% block javascripts %}
+        <script>
+
+            function textAreaAdjust(o) {
+              o.style.height = "1px";
+              o.style.height = (10+o.scrollHeight)+"px";
+            }
+
+            (function() {
+               textAreaAdjust(document.getElementById("form-query"));
+
+            })();
+
+        </script>
+    {% endblock %} 
+    {% for sentence in sentences %}
+        <div class="row pt-2 pb-2" style="border-top: 1px solid #cccccc;">
+
+            
+            <div class="col-md-6">
+
+                <table>
+                    {% for part in sentence.parts %}
+                        <tr>
+                            <td class="text-right pb-2" style="min-width: 180px; vertical-align: top;
+">
+                                <strong>{{ part.word.value }}:</strong>
+                            </td>
+                            <td class="text-left" style="vertical-align: top;"> 
+                                {{ part.reading }} <!--small>({{ part.partOfSpeech }} {{ part.subClass }})</small-->  {{ part.glossaries | join(", ") }}.
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col-md-6">
+                {{ sentence.sentence }}
+            </div>
+
+        </div>
+    {% endfor %}
+
+        
+    </div>
+   
+
 {% endblock %}
