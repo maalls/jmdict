@@ -11,7 +11,7 @@ class SearchController extends Controller
 {
 
      /**
-      * @Route("/")
+      * @Route("/search", name="search")
       */
     public function index(Request $request, \Doctrine\Common\Persistence\ObjectManager $em)
     {
@@ -33,13 +33,13 @@ class SearchController extends Controller
             "接尾" => "suffix"
         ];
 
-        $q = $request->query->get("q");
+        $q = $request->request->get("q");
+        $sentences = [];
 
         if($q) {
 
             $ss = explode("。", $q);
-            $sentences = [];
-
+            
             foreach($ss as $s) {
 
                 $parts = [];
