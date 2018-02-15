@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "74927953d2490d7e05b508c7f19b56b3",
+    "content-hash": "b2b5e46ea64bc9cf73dbb673c5c8de30",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1134,6 +1134,35 @@
                 "sql"
             ],
             "time": "2014-01-12T16:20:24+00:00"
+        },
+        {
+            "name": "maalls/jmdict-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maalls/jmdictbundle.git",
+                "reference": "0d36cc14870631fd5ad5fe56340232e802214dff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maalls/jmdictbundle/zipball/0d36cc14870631fd5ad5fe56340232e802214dff",
+                "reference": "0d36cc14870631fd5ad5fe56340232e802214dff",
+                "shasum": ""
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Maalls\\JMDictBundle\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "source": "https://github.com/maalls/jmdictbundle/tree/master",
+                "issues": "https://github.com/maalls/jmdictbundle/issues"
+            },
+            "time": "2018-02-15T09:16:00+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5478,6 +5507,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "maalls/jmdict-bundle": 20,
         "symfony/lts": 20
     },
     "prefer-stable": false,

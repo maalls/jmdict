@@ -1,3 +1,9 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+maalls_jmdict_bundle:
+    # loads routes from the YAML or XML files found in some bundle directory
+    resource: '@JMDictBundle/Controller/'
+    type:     annotation
+    prefix:   /jmdict

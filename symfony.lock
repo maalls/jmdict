@@ -74,6 +74,9 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "maalls/jmdict-bundle": {
+        "version": "dev-master"
+    },
     "monolog/monolog": {
         "version": "1.23.0"
     },
